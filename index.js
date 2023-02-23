@@ -7,6 +7,9 @@ const port = process.env.PORT || 5000;
 //itializing express
 const app = express();
 
+// establishing route
+app.use("/openai", require("./routes/openaiRoutes"));
+
 //passing port to test server
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

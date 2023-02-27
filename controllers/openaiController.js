@@ -7,11 +7,15 @@ const openai = new OpenAIApi(configuration);
 
 const generateImage = async (req, res) => {
   // this code block is being used as a test with POSTMAN to verify connection.
+  const {prompt, size } = req.body;
+
+  const imageSize = size === 'small' ? '256x256' : size === 'medium' ? '512x512' : '1024x1024';
+
   try {
     const response = await openai.createImage({
-      prompt: 'Polar bear on ice skates', // prompt for image generation
+      prompt, // prompt for image generation
       n: 1, // number of images returned
-      size: '512x512' // size of image
+      size: imageSize // size of image
     });
 
     const imageUrl = response.data.data[0].url

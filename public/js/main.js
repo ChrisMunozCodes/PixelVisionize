@@ -1,5 +1,3 @@
-const { generateImage } = require("../../controllers/openaiController");
-
 function onsubmit(e){
     e.preventDefault();
     //clearing the dom from any past images and messages

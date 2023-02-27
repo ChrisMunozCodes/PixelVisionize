@@ -7,6 +7,7 @@ const openai = new OpenAIApi(configuration);
 
 const generateImage = async (req, res) => {
   // this code block is being used as a test with POSTMAN to verify connection.
+
   //reciving a prompt and size
   const {prompt, size} = req.body;
 
@@ -14,7 +15,9 @@ const generateImage = async (req, res) => {
 
   try {
     const response = await openai.createImage({
-      prompt, // prompt for image generation recived from the form
+
+      prompt, // prompt for image generation
+
       n: 1, // number of images returned
       size: imageSize // size of image
     });

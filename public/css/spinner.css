@@ -19,7 +19,7 @@
 
 /* Transparent Overlay */
 .spinner:before {
-  content: "";
+  content: '';
   display: block;
   position: fixed;
   top: 0;
@@ -45,7 +45,7 @@
 }
 
 .spinner:not(:required):after {
-  content: "";
+  content: '';
   display: block;
   font-size: 10px;
   width: 1em;

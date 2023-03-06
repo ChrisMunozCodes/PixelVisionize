@@ -8,16 +8,15 @@
   padding: 0;
 }
 
-:root {
-  --primary-color: #f9b64d;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  background: #f4f4f4;
+  background-image: url(../images/login-page-img.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* Navbar */
@@ -51,16 +50,24 @@ body {
 
 /* Showcase */
 .showcase {
-  height: 450px;
-  width: 100%;
+  height: 50vh;
+  max-width: 100%;
   background: var(--primary-color);
 }
 
 .showcase h1 {
   font-size: 2.5rem;
-  color: #333;
+  color: white;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
+  display: block;
+  margin: auto;
+  margin-bottom: 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(70px);
+  background: #333333;
+  box-shadow: 9px 6px 25px 3px rgb(255 63 63);
 }
 
 .showcase form {
@@ -89,9 +96,17 @@ form button {
   border: none;
   border-radius: 5px;
   background: #333;
-  color: #fff;
+  color: black;
   cursor: pointer;
   margin-top: 20px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: 200ms ease;
 }
 
 form button:hover {
@@ -102,16 +117,30 @@ form button:hover {
 
 .image {
   width: 100%;
-  margin-top: 2rem;
+  background: transparent;
+  padding: 3rem;
 }
 
 img {
   display: block;
   margin: auto;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 9px 6px 25px 3px rgb(255 63 63);
+  padding: .2rem;
+  margin-bottom: .2rem;
 }
 
 .msg {
   font-size: 1.6rem;
   text-align: center;
   margin-top: 1rem;
+}
+
+.hidden-toggle{
+  display: none;
 }

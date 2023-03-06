@@ -57,3 +57,10 @@ function removeSpinner(){
 }
 //adding event listener to submit button to trigger onsubmit function
 document.querySelector('#image-form').addEventListener('submit', onsubmit);
+
+//when generate button is clicked, toggles the hidden-image class to show the section where the image will be
+document.querySelector('.btn').addEventListener('click', toggleHidden)
+
+function toggleHidden() {
+    document.querySelector('.image').classList.toggle('hidden-toggle')
+} 

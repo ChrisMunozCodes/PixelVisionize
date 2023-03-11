@@ -1,8 +1,9 @@
 function onsubmit(e){
     e.preventDefault();
-    //clearing the dom from any past images and messages
+    //clearing the dom from any past images and messages and icons
     document.querySelector('.msg').textContent = '';
     document.querySelector('#image').src = ''
+    document.querySelector('.resultsOptions').innerHTML = "";
 
     const prompt = document.querySelector('#prompt').value;
     const size = document.querySelector('#size').value;
@@ -41,6 +42,8 @@ async function generateImageRequest(prompt, size){
     const imageUrl = data.data;
     //display image url in the dom
     document.querySelector('#image').src = imageUrl;
+    //insert and display star icons to DOM
+    document.querySelector('.resultsOptions').innerHTML = '<i class="fa-regular fa-star unlock"></i>' + '<i class="fa-solid fa-star lock"></i>'
     removeSpinner();
     }catch(error){
         document.querySelector('.msg').textContent = error;
@@ -64,3 +67,7 @@ document.querySelector('.btn').addEventListener('click', toggleHidden)
 function toggleHidden() {
     document.querySelector('.image').classList.toggle('hidden-toggle')
 } 
+
+
+
+

@@ -2,10 +2,10 @@
   "name": "pixelvisionize-master",
   "version": "1.0.0",
   "description": "AI image generator application using DALL·E generation technology.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index", 
-    "dev": "nodemon index" 
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "keywords": [],
   "author": "",

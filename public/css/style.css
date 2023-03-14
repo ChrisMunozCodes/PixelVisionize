@@ -156,7 +156,7 @@ img {
 
 .image-container .resultsOptions{
   position: absolute;
-  width: 100%;
+  width: auto;
   top: 0.5em;
   left: 0em;
   font-size: 250%;

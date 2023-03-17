@@ -1,3 +1,5 @@
+document.getElementById("likebutton").addEventListener("click", sendInfo);
+
 function onsubmit(e){
     e.preventDefault();
     //clearing the dom from any past images and messages and icons
@@ -68,6 +70,22 @@ function toggleHidden() {
     document.querySelector('.image').classList.toggle('hidden-toggle')
 } 
 
-
+// asynce function that will issue a fetch requet that will send it to server.js with the post methdo
+async function sendInfo(){
+    const imgSrc = document.getElementById("image").getAttribute("src");
+    try{
+        const response = await fetch("/sendInfo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                src: imgSrc,
+            }),
+        });
+    }catch(err){
+        console.error(err)
+    }
+}
 
 

@@ -126,6 +126,7 @@ form button:hover {
   width: 100%;
   background: transparent;
   padding: 3rem;
+  max-width: 100vw;
 }
 
 img {
@@ -222,6 +223,14 @@ img {
   visibility: visible;
 }
 
+}
+
+  /* The following media query disables the large option for any screen size 1024px and below */
+
+@media screen and (max-width: 1024px) {
+  .large-remove{
+    display: none;
+  }
 }
 
 /* Media Query for anything smaller than a Surface Duo */
@@ -348,7 +357,6 @@ img {
   /* Image */
   
   .image {
-    width: 100%;
     background: transparent;
     padding: 3rem;
   }
@@ -415,6 +423,14 @@ img {
       /* 0 0 10px 5px #fff,  inner white */
       /* 0 0 20px 10px #f0f, middle magenta */
       /* 0 0 30px 15px #0ff; outer cyan */ 
+  }
+
+  .medium-remove{
+    display: none;
+  }
+
+  .large-remove{
+    display: none;
   }
   
   /* favorites star Icon alert text */

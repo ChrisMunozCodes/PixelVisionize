@@ -235,7 +235,7 @@ img {
 
 /* Media Query for anything smaller than a Surface Duo */
 
-@media only screen and (max-width: 539px) {
+@media only screen and (max-width: 540px) {
   html{
     font-size: 14px;
   }

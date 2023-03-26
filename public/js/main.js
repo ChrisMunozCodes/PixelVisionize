@@ -67,8 +67,10 @@ document.querySelector('#image-form').addEventListener('submit', onsubmit);
 document.querySelector('.btn').addEventListener('click', toggleHidden)
 
 function toggleHidden() {
-    document.querySelector('.image').classList.toggle('hidden-toggle')
-} 
+    if (document.querySelector('#toggle-hidden-section').classList.contains('hidden-toggle')) {
+        document.querySelector('.image').classList.toggle('hidden-toggle');
+    }
+}
 
 // asynce function that will issue a fetch requet that will send it to server.js with the post methdo
 async function sendInfo(){

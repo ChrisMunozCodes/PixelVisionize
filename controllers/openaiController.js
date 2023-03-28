@@ -1,4 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
+const fs = require("fs/promises")
+const path = require("path")
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,  // passing in the open ai key
@@ -17,16 +19,25 @@ const generateImage = async (req, res) => {
     const response = await openai.createImage({
 
       prompt, // prompt for image generation
-
       n: 1, // number of images returned
-      size: imageSize // size of image
+      size: imageSize, // size of image
+      response_format: 'b64_json',
     });
 
-    const imageUrl = response.data.data[0].url
+    const imageUrl = response.data.data[0].b64_json
+
+    const imagesDir = path.join(__dirname, "../public/images")
+    await fs.mkdir(imagesDir, {recursive:true})
+
+    const timestamp = Date.now()
+    const fileName = `${timestamp}.png`
+    const imagePath = path.join(imagesDir, fileName)
+
+    await fs.writeFile(imagePath, Buffer.from(imageUrl, "base64"))
 
     res.status(200).json({
       success: true,
-      data: imageUrl
+      data: `images/${fileName}`
     });
   } catch (error) {
     if (error.response) {

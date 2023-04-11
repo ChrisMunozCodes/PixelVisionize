@@ -6,7 +6,7 @@
 </h1>
 
 <h3 align="center">
- Visionize your images.
+ Vision your creations with Pixel Visionize (text to image) app.
 </h3>
 
 <p align="center">

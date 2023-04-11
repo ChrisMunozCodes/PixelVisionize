@@ -76,5 +76,3 @@ $ git clone https://github.com/ChrisMunozCodes/PixelVisionize.git
 
 9. Now go back to your github and a button will appear that prompts you to make a pull request
 ```
-
-After your pull request is merged, you can delete your branch

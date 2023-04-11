@@ -1,3 +1,4 @@
 node_modules
 # ignoring sensitive data
 .env
+tmp

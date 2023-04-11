@@ -45,14 +45,13 @@ OPENAI_API_KEY= "*key goes here*"
 MONGODB_URL = "*Your mongo link here*"
 
 **Clone the project and access the folder**
+```
+
+## 🤔 How to contribute
 
 ```bash
 $ git clone https://github.com/ChrisMunozCodes/PixelVisionize.git
 ```
-
-**Follow the steps below**
-
-## 🤔 How to contribute
 
 **Follow the steps below**
 

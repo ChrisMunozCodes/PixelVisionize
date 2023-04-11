@@ -6,7 +6,7 @@
 </h1>
 
 <h3 align="center">
-  Coming soon.
+ Visionize your images.
 </h3>
 
 <p align="center">

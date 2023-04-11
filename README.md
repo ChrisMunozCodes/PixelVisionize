@@ -2,11 +2,6 @@
  Pixel Visionize
 </h1>
 
-<h2 align="center">
-	<!-- <img alt="Logo" src=".github/logo.png" width="200px" /> -->
-  Image generation tool using OpenAI's technology.
-</h2>
-
 <h3 align="center">
  Vision your creations with Pixel Visionize (text to image) app.
 </h3>

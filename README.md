@@ -20,7 +20,7 @@
 
 ## 👨🏻‍💻 About the project
 
-- <p style="color: red;">Image generation tool using OpenAI's technology. Create an account, generate photos with text, save them to your gallery.</p>
+- <p style="color: red;">Pixel Visionize is a text to image generation tool using OpenAI's API technology. Pixel Visionize will give you suggestions for text prompts, allow you to save your creations, and allow you to access your own gallery.</p>
 
 ## 🚀 Technologies
 

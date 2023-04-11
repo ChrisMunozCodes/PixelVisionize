@@ -2,9 +2,9 @@
  Pixel Visionize
 </h1>
 
-<h3 align="center">
+<h2 align="center">
  Vision your creations with Pixel Visionize (text to image) app.
-</h3>
+</h2>
 
 <p align="center">
   <a href="#-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

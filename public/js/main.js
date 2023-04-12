@@ -8,7 +8,8 @@ function onsubmit(e) {
   document.querySelector(".resultsOptions").innerHTML = "";
 
   const prompt = document.querySelector("#prompt").value;
-  const size = document.querySelector("#size").value;
+  const size = '256x256'
+
 
   if (prompt === "") {
     alert("Please add some text");
@@ -78,7 +79,7 @@ function toggleHidden() {
   }
 }
 
-// asynce function that will issue a fetch requet that will send it to server.js with the post methdo
+// asynce function that will issue a fetch requet that will send it to server.js with the post method
 async function sendInfo() {
   const imgSrc = document.getElementById("image").getAttribute("src");
   try {
@@ -96,18 +97,124 @@ async function sendInfo() {
   }
 }
 
-let listElements = document.querySelectorAll(".link");
+//
+  // Code for the suggestion dropdown UI functionality. 
 
-//goes thru every link element and adds an event to them.
-listElements.forEach(listElement => {
-  listElement.addEventListener("click", () => {
-    if (listElement.classList.contains("active")) {
-      listElement.classList.remove("active");
+  // Note: Inside style CSS the class "suggestion-shown" has a rule that looks for an element with "suggestion-shown" that also has the class="suggestion-container". If the element contains
+  // suggestion-container but not suggestion-shown, display: none.
+
+  // That way we can look for what category the user has selected, and show only the relevant buttons.
+//
+
+const dropdowns = document.querySelectorAll('.dropdown');
+const suggestionContainer = document.querySelector('.suggestion-container');
+
+// Add suggestion-shown class to suggestionContainer element
+suggestionContainer.classList.add('suggestion-shown');
+
+// For each dropdown, add a click event listener
+dropdowns.forEach((dropdown) => {
+  dropdown.addEventListener('click', () => {
+    // Get the next sibling element of the dropdown
+    const submenu = dropdown.nextElementSibling;
+    // Get the parent element of the dropdown
+    const parent = dropdown.parentNode;
+    // Toggle the class 'active' on the parent element
+    parent.classList.toggle('active');
+
+    if (submenu.style.maxHeight) {
+      // close submenu
+      submenu.style.maxHeight = null;
+      suggestionContainer.classList.remove('suggestion-shown');
     } else {
-      listElements.forEach(ListE => {
-        ListE.classList.remove("active");
-      });
-      listElement.classList.toggle("active");
+      // open submenu
+      // Setting the max height of the dropdown ui to its scroll height, "opening" the menu.
+      submenu.style.maxHeight = submenu.scrollHeight + 'px';
+      suggestionContainer.classList.add('suggestion-shown');
+      
+      const activeDropdown = document.querySelector('.active .dropdown');
+      const lightingSelected = document.querySelector('.lighting-click.selected');
+      const moodSelected = document.querySelector('.mood-click.selected');
+      
+
+      // If there is an active dropdown and either lightingSelected or moodSelected is selected
+      if (activeDropdown && (lightingSelected || moodSelected)) {
+        // Get the element with class 'suggestion-style'
+        const styleSuggestions = document.querySelector('.suggestion-style');
+        // Remove the class 'suggestion-shown' from styleSuggestions
+        styleSuggestions.classList.remove('suggestion-shown');
+      }
     }
   });
 });
+
+const promptSuggestionsText = document.querySelector('.prompt-suggestions-text');
+if (promptSuggestionsText) {
+  promptSuggestionsText.addEventListener('click', () => {
+    const activeDropdown = document.querySelector('.active .dropdown');
+    if (activeDropdown) {
+      // close active dropdown
+      const submenu = activeDropdown.nextElementSibling;
+      submenu.style.maxHeight = null;
+      activeDropdown.parentNode.classList.remove('active');
+    }
+
+    suggestionContainer.classList.toggle('suggestion-shown');
+  });
+}
+
+// These variables control the cosmetic css properties, .selected turns the suggestion categories red with a white dotted border.
+const style = document.querySelector('.style-click');
+const lighting = document.querySelector('.lighting-click');
+const mood = document.querySelector('.mood-click');
+
+// These variables control the act of tracking which category is selected and only showing the correct buttons, and hiding the others.
+const styleSuggestions = document.querySelector('.suggestion-style');
+const lightingSuggestions = document.querySelector('.suggestion-lighting');
+const moodSuggestions = document.querySelector('.suggestion-mood');
+
+if (style) {
+  style.addEventListener('click', function() {
+    this.classList.add('selected');
+    if (lighting) {
+      lighting.classList.remove('selected');
+    }
+    if (mood) {
+      mood.classList.remove('selected');
+    }
+    styleSuggestions.classList.add('suggestion-shown');
+    lightingSuggestions.classList.remove('suggestion-shown');
+    moodSuggestions.classList.remove('suggestion-shown');
+  });
+}
+
+if (lighting) {
+  lighting.addEventListener('click', function() {
+    this.classList.add('selected');
+    if (style) {
+      style.classList.remove('selected');
+    }
+    if (mood) {
+      mood.classList.remove('selected');
+    }
+    styleSuggestions.classList.remove('suggestion-shown');
+    lightingSuggestions.classList.add('suggestion-shown');
+    moodSuggestions.classList.remove('suggestion-shown');
+  });
+}
+
+if (mood) {
+  mood.addEventListener('click', function() {
+    this.classList.add('selected');
+    if (style) {
+      style.classList.remove('selected');
+    }
+    if (lighting) {
+      lighting.classList.remove('selected');
+    }
+    styleSuggestions.classList.remove('suggestion-shown');
+    lightingSuggestions.classList.remove('suggestion-shown');
+    moodSuggestions.classList.add('suggestion-shown');
+  });
+}
+//

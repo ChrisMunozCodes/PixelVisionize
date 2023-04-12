@@ -17,18 +17,15 @@
     <header>
       <div class="navbar">
         <div class="logo">
-          <h2><a href="#">PixelVisionize</a></h2>
+          <h2><a href="#">Pixel Visionize</a></h2>
         </div>
         <div class="nav-links">
           <ul>
             <li>
-              <a href="./login.html">Login</a>
+              <a href="./login.html">LOGIN</a>
             </li>
             <li>
-              <a href="./gallery.html">Gallery</a>
-            </li>
-            <li>
-              <a href="signup.html" target="_blank">Sign up</a>
+              <a href="./gallery.html">GALLERY</a>
             </li>
           </ul>
         </div>
@@ -38,18 +35,81 @@
     <main>
       <section class="showcase">
         <form id="image-form">
-          <h1>Describe An Image</h1>
+          <h1>TEXT TO IMAGE</h1>
           <div class="form-control">
-            <input type="text" id="prompt" placeholder="Enter Text" />
+            <input type="text" id="prompt" placeholder="Describe your perfect image!" />
           </div>
           <!-- size -->
-          <div class="form-control">
-            <select name="size" id="size">
-              <option value="small" selected>Small</option>
-              <option class="medium-remove" value="medium">Medium</option>
-              <option class="large-remove" value="large">Large</option>
-            </select>
-          </div>
+            <div class="tips-container">
+              <ul class="accordion-menu">
+                <li class="link">
+                  <div class="dropdown">
+                    <i class="fa-solid fa-chevron-down"></i>
+                    PROMPT SUGGESTIONS
+                  </div>
+                  <ul class="submenu-items">
+                    <li class="category-selection">
+                      <section class="style-click selected">
+                        <h2>STYLE</h2>
+                      </section>
+
+                      <section class="lighting-click">
+                        <h2>LIGHTING</h2>
+                      </section>
+
+                      <section class="mood-click">
+                        <h2>MOOD</h2>
+                      </section>
+              
+                    </li>
+
+
+                    <li class="suggestion-container suggestion-style suggestion-shown">
+                      <div>
+                        <button>Cartoonish</button>
+                        <button>Realistic</button>
+                        <button>Abstract</button>
+                        <button>Minimalism</button>
+                        <button>Surrealism</button>
+                        <button>Cyberpunk</button>
+                        <button>Cubism</button>
+                        <button>Pop Art</button>
+                        <button>Baroque</button>
+                      </div>
+                    </li>
+
+                    <li class="suggestion-container suggestion-lighting">
+                      <div>
+                        <button>Bright</button>
+                        <button>Dim</button>
+                        <button>Flickering</button>
+                        <button>Neon</button>
+                        <button>Spotlight</button>
+                        <button>Shimmering</button>
+                        <button>Glow</button>
+                        <button>Harsh</button>
+                        <button>Soft</button>
+                      </div>
+                    </li>
+
+                    <li class="suggestion-container suggestion-mood">
+                      <div>
+                        <button>Euphoric</button>
+                        <button>Melancholic</button>
+                        <button>Serene</button>
+                        <button>Nostalgic</button>
+                        <button>Somber</button>
+                        <button>Vibrant</button>
+                        <button>Intense</button>
+                        <button>Serendipitous</button>
+                        <button>Calming</button>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            
           <button type="submit" class="btn">Generate</button>
         </form>
       </section>
@@ -66,56 +126,6 @@
         </div>
       </section>
 
-      <section class="tips">
-        <div class="tips-container">
-          <ul class="accordion-menu">
-            <li class="link">
-              <div class="dropdown">
-                <i class="fa-solid fa-chevron-down"></i>
-                Idea suggestions
-              </div>
-              <ul class="submenu-items">
-                <li>The gateway to...</li>
-                <li>A giant wave approaching...</li>
-                <li>Astronauts riding on...</li>
-              </ul>
-            </li>
-            <li class="link">
-              <div class="dropdown">
-                <i class="fa-solid fa-chevron-down"></i>
-                Styles
-              </div>
-              <ul class="submenu-items">
-                <li>Cyberpunk</li>
-                <li>Surreal</li>
-                <li>Pixel Art</li>
-              </ul>
-            </li>
-            <li class="link">
-              <div class="dropdown">
-                <i class="fa-solid fa-chevron-down"></i>
-                Artist Styles
-              </div>
-              <ul class="submenu-items">
-                <li>Salvador Dali</li>
-                <li>Pablo Picasso</li>
-                <li>Studio Ghibli</li>
-              </ul>
-            </li>
-            <li class="link">
-              <div class="dropdown">
-                <i class="fa-solid fa-chevron-down"></i>
-                Mediums
-              </div>
-              <ul class="submenu-items">
-                <li>Sculpture</li>
-                <li>Watercolor Painting</li>
-                <li>Graffiti</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </section>
     </main>
 
     <div class="spinner"></div>

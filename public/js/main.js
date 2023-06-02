@@ -1,5 +1,6 @@
 document.getElementById("likebutton").addEventListener("click", sendInfo);
-
+document.getElementById("likebutton").addEventListener("touchstart", sendInfo);
+let likebuttonCount = 0;
 function onsubmit(e) {
   e.preventDefault();
   //clearing the dom from any past images and messages and icons
@@ -81,29 +82,32 @@ function toggleHidden() {
 
 // asynce function that will issue a fetch requet that will send it to server.js with the post method
 async function sendInfo() {
-  const imgSrc = document.getElementById("image").getAttribute("src");
-  try {
-    const response = await fetch("/sendInfo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        src: imgSrc,
-      }),
-    });
-  } catch (err) {
-    console.error(err);
+  if (likebuttonCount === 0) {
+    const imgSrc = document.getElementById("image").getAttribute("src");
+    try {
+      const response = await fetch("/sendInfo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          src: imgSrc,
+        }),
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
+  likebuttonCount = +1
 }
 
 //
-  // Code for the suggestion dropdown UI functionality. 
+// Code for the suggestion dropdown UI functionality. 
 
-  // Note: Inside style CSS the class "suggestion-shown" has a rule that looks for an element with "suggestion-shown" that also has the class="suggestion-container". If the element contains
-  // suggestion-container but not suggestion-shown, display: none.
+// Note: Inside style CSS the class "suggestion-shown" has a rule that looks for an element with "suggestion-shown" that also has the class="suggestion-container". If the element contains
+// suggestion-container but not suggestion-shown, display: none.
 
-  // That way we can look for what category the user has selected, and show only the relevant buttons.
+// That way we can look for what category the user has selected, and show only the relevant buttons.
 //
 
 const dropdowns = document.querySelectorAll('.dropdown');
@@ -131,11 +135,11 @@ dropdowns.forEach((dropdown) => {
       // Setting the max height of the dropdown ui to its scroll height, "opening" the menu.
       submenu.style.maxHeight = submenu.scrollHeight + 'px';
       suggestionContainer.classList.add('suggestion-shown');
-      
+
       const activeDropdown = document.querySelector('.active .dropdown');
       const lightingSelected = document.querySelector('.lighting-click.selected');
       const moodSelected = document.querySelector('.mood-click.selected');
-      
+
 
       // If there is an active dropdown and either lightingSelected or moodSelected is selected
       if (activeDropdown && (lightingSelected || moodSelected)) {
@@ -174,7 +178,7 @@ const lightingSuggestions = document.querySelector('.suggestion-lighting');
 const moodSuggestions = document.querySelector('.suggestion-mood');
 
 if (style) {
-  style.addEventListener('click', function() {
+  style.addEventListener('click', function () {
     this.classList.add('selected');
     if (lighting) {
       lighting.classList.remove('selected');
@@ -189,7 +193,7 @@ if (style) {
 }
 
 if (lighting) {
-  lighting.addEventListener('click', function() {
+  lighting.addEventListener('click', function () {
     this.classList.add('selected');
     if (style) {
       style.classList.remove('selected');
@@ -204,7 +208,7 @@ if (lighting) {
 }
 
 if (mood) {
-  mood.addEventListener('click', function() {
+  mood.addEventListener('click', function () {
     this.classList.add('selected');
     if (style) {
       style.classList.remove('selected');
